@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Summarizer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold mb-8 text-center">Text Summarizer</h1>
+      <form
+        method="post"
+        action="{{ url_for('summarize') }}"
+        class="bg-white p-6 rounded-lg shadow-md"
+      >
+        <div class="mb-4">
+          <textarea
+            name="text"
+            rows="10"
+            class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            placeholder="Enter text to summarize"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-indigo-500 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+        >
+          Summarize
+        </button>
+      </form>
+      {% if summary %}
+      <div class="mt-6 bg-gray-50 p-4 rounded-md shadow-md">
+        <h2 class="text-xl font-semibold mb-4">Summary:</h2>
+        <p>{{ summary }}</p>
+      </div>
+      {% endif %}
+    </div>
+    <footer class="bg-white text-center py-4 mt-8 shadow-inner">
+      <p class="text-gray-600 text-sm">
+        Made by
+        <a
+          href="https://www.linkedin.com/in/abdul-mueed-shah-584704228"
+          class="text-indigo-600 hover:underline"
+          >Abdul Mueed</a
+        >
+        |
+        <a
+          href="https://www.linkedin.com/in/"
+          class="text-indigo-600 hover:underline"
+          >Ruhail</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
